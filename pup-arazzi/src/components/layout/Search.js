@@ -6,6 +6,12 @@ class Search extends Component {
   };
   onChange = (event) =>
     this.setState({ [event.target.name]: event.target.value });
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    fetchImage(this.state.text);
+  };
+
   render() {
     return (
       <div>

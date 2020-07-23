@@ -11,7 +11,9 @@ class App extends Component {
     loading: false,
   };
 
-  async fetchImages() {}
+  fetchImage = async (text) => {
+    const response = await axios('');
+  };
 
   render() {
     return (
@@ -24,7 +26,7 @@ class App extends Component {
               path='/'
               render={(props) => (
                 <div className='container'>
-                  <Search />
+                  <Search fetchImage={this.fetchImage} />
                 </div>
               )}
             ></Route>
