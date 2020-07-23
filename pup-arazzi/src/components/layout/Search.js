@@ -8,13 +8,16 @@ class Search extends Component {
     return (
       <div>
         <form className='form'>
-          <input type='text' name='text' placeholder='Search Dog Images...' />
+          <input
+            type='text'
+            name='text'
+            placeholder='Search Dog Images...'
+            value={this.state.text}
+          />
           <input
             type='submit'
             className='btn bg-success btn-block'
             value='Search'
-            onChange={}
-            onSubmit={}
           />
         </form>
       </div>
