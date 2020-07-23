@@ -4,19 +4,29 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import Search from './components/layout/Search';
+import Instruction from './components/layout/Instruction';
 import About from './components/pages/About';
 
 class App extends Component {
   state = {
-    dogData: {},
+    dogBreeds: {},
+    dogData: '',
     loading: false,
+  };
+
+  fetchBreeds = async () => {
+    this.setState({ loading: true });
+    const response = await axios('https://dog.ceo/api/breeds/list/all');
+    this.setState({ dogBreeds: response.data.message, loading: false });
   };
 
   fetchImage = async (text) => {
     this.setState({ loading: true });
     let response;
     if (text !== '') {
-      response = await axios(`https://dog.ceo/api/breed/${text}/images/random`);
+      response = await axios(
+        `https://dog.ceo/api/breed/${text.toLowerCase()}/images/random`
+      );
     } else {
       response = await axios('https://dog.ceo/api/breed/images/random');
     }
@@ -35,6 +45,9 @@ class App extends Component {
               render={(props) => (
                 <div className='container'>
                   <Search fetchImage={this.fetchImage} />
+                  <div>
+                    <Instruction fetchBreeds={this.fetchBreeds} />
+                  </div>
                 </div>
               )}
             ></Route>
