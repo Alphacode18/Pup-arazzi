@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <nav className='navbar bg-success'>
-      <h1>Pup-arazzi</h1>
+      <h1>
+        <Link to='/'>Pup-arazzi</Link>
+      </h1>
       <ul>
         <li>
-          <Link to='/about' />
-          About
+          <Link to='/about'>About</Link>
         </li>
       </ul>
     </nav>
