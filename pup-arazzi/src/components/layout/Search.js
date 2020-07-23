@@ -9,13 +9,15 @@ class Search extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    fetchImage(this.state.text);
+    this.props.fetchImage(this.state.text);
+    console.log('Prop Pushed Up');
+    this.setState({ text: '' });
   };
 
   render() {
     return (
       <div>
-        <form className='form'>
+        <form onSubmit={this.onSubmit} className='form'>
           <input
             type='text'
             name='text'

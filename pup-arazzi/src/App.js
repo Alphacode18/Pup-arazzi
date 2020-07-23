@@ -8,11 +8,17 @@ import About from './components/pages/About';
 
 class App extends Component {
   state = {
+    dogData: {},
     loading: false,
   };
 
   fetchImage = async (text) => {
-    const response = await axios('');
+    console.log('API Call Initiated...');
+    this.setState({ loading: true });
+    const response = await axios(
+      `https://dog.ceo/api/breed/${text}/images/random`
+    );
+    this.setState({ dogData: response.data.message, loading: false });
   };
 
   render() {
