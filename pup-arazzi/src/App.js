@@ -52,13 +52,15 @@ class App extends Component {
                   <Search fetchImage={this.fetchImage} />
                   <div>
                     <Instruction />
-                    <Breeds breeds={this.state.dogBreeds} />
                   </div>
                 </div>
               )}
             ></Route>
             <Route exact path='/about/'>
               <About />
+            </Route>
+            <Route exact path='/breeds/'>
+              <Breeds breeds={this.state.dogBreeds} />
             </Route>
           </Switch>
         </div>
