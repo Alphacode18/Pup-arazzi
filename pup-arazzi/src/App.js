@@ -13,11 +13,13 @@ class App extends Component {
   };
 
   fetchImage = async (text) => {
-    console.log('API Call Initiated...');
     this.setState({ loading: true });
-    const response = await axios(
-      `https://dog.ceo/api/breed/${text}/images/random`
-    );
+    let response;
+    if (text !== '') {
+      response = await axios(`https://dog.ceo/api/breed/${text}/images/random`);
+    } else {
+      response = await axios('https://dog.ceo/api/breed/images/random');
+    }
     this.setState({ dogData: response.data.message, loading: false });
   };
 
