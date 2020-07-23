@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layout/Navbar';
@@ -7,9 +8,10 @@ import About from './components/pages/About';
 
 class App extends Component {
   state = {
-    text: '',
     loading: false,
   };
+
+  async fetchImages() {}
 
   render() {
     return (
