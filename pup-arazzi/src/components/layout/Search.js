@@ -10,7 +10,6 @@ class Search extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.fetchImage(this.state.text);
-    this.setState({ text: '' });
   };
 
   render() {

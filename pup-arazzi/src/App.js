@@ -34,7 +34,7 @@ class App extends Component {
         `https://dog.ceo/api/breed/${text.toLowerCase()}/images/random`
       );
     } else {
-      response = await axios('https://dog.ceo/api/breed/images/random');
+      response = await axios('https://dog.ceo/api/breeds/image/random');
     }
     this.setState({ dogData: response.data.message, loading: false });
   };
