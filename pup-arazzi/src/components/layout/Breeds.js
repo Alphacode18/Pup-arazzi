@@ -1,9 +1,7 @@
 import React from 'react';
 
-const Breeds = () => {
-  const breeds = Object.keys(breeds);
-  console.log(breeds);
-  return <div>Breeds</div>;
+const Breeds = (props) => {
+  return <div></div>;
 };
 
 export default Breeds;

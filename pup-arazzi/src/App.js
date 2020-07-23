@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/layout/Navbar';
 import Search from './components/layout/Search';
 import Instruction from './components/layout/Instruction';
+import Breeds from './components/layout/Breeds';
 import About from './components/pages/About';
 
 class App extends Component {
@@ -13,6 +14,10 @@ class App extends Component {
     dogData: '',
     loading: false,
   };
+
+  componentDidMount() {
+    this.fetchBreeds();
+  }
 
   fetchBreeds = async () => {
     this.setState({ loading: true });
@@ -46,7 +51,8 @@ class App extends Component {
                 <div className='container'>
                   <Search fetchImage={this.fetchImage} />
                   <div>
-                    <Instruction fetchBreeds={this.fetchBreeds} />
+                    <Instruction />
+                    <Breeds breeds={this.state.dogBreeds} />
                   </div>
                 </div>
               )}
