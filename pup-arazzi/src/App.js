@@ -7,6 +7,7 @@ import Search from './components/layout/Search';
 import Instruction from './components/layout/Instruction';
 import Breeds from './components/layout/Breeds';
 import About from './components/pages/About';
+import Card from './components/layout/Card';
 
 class App extends Component {
   state = {
@@ -50,6 +51,7 @@ class App extends Component {
               render={(props) => (
                 <div className='container'>
                   <Search fetchImage={this.fetchImage} />
+                  <Card image={this.state.dogData} />
                   <div>
                     <Instruction />
                   </div>
